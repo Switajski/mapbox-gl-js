@@ -1,6 +1,6 @@
 'use strict';
 
-var ShelfPack = require('shelf-pack');
+var ShelfPack = require('shelf-pack').default;
 var browser = require('../util/browser');
 var util = require('../util/util');
 
