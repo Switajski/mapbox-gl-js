@@ -4,7 +4,6 @@ var ArrayGroup = require('./array_group');
 var BufferGroup = require('./buffer_group');
 var util = require('../util/util');
 var StructArrayType = require('../util/struct_array');
-var assert = require('assert');
 
 module.exports = Bucket;
 
@@ -331,7 +330,6 @@ function createPaintAttributes(bucket) {
                 var paintAttributes = layerPaintAttributes[layer.id];
 
                 var attributeInputName = attribute.name;
-                assert(attribute.name.slice(0, 2) === 'a_');
                 var attributeInnerName = attribute.name.slice(2);
                 var attributeVaryingDefinition;
 

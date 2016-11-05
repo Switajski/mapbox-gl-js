@@ -1,7 +1,5 @@
 'use strict';
 
-var assert = require('assert');
-
 module.exports = VertexArrayObject;
 
 function VertexArrayObject() {
@@ -57,7 +55,6 @@ VertexArrayObject.prototype.freshBind = function(gl, program, layoutVertexBuffer
         for (var i = numNextAttributes; i < numPrevAttributes; i++) {
             // WebGL breaks if you disable attribute 0.
             // http://stackoverflow.com/questions/20305231
-            assert(i !== 0);
             gl.disableVertexAttribArray(i);
         }
     }

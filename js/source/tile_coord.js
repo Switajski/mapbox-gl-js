@@ -1,15 +1,11 @@
 'use strict';
 
-var assert = require('assert');
 var WhooTS = require('whoots-js');
 var Coordinate = require('../geo/coordinate');
 
 module.exports = TileCoord;
 
 function TileCoord(z, x, y, w) {
-    assert(!isNaN(z) && z >= 0 && z % 1 === 0);
-    assert(!isNaN(x) && x >= 0 && x % 1 === 0);
-    assert(!isNaN(y) && y >= 0 && y % 1 === 0);
 
     if (isNaN(w)) w = 0;
 

@@ -2,7 +2,6 @@
 
 var util = require('../util/util');
 var EXTENT = require('./bucket').EXTENT;
-var assert = require('assert');
 
 
 // These bounds define the minimum and maximum supported coordinate values.
@@ -32,7 +31,6 @@ var boundsLookup = {
  */
 module.exports = function loadGeometry(feature, bits) {
     var bounds = boundsLookup[bits || 16];
-    assert(bounds);
 
     var scale = EXTENT / feature.extent;
     var geometry = feature.loadGeometry();

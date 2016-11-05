@@ -1,6 +1,5 @@
 'use strict';
 
-var assert = require('assert');
 var util = require('../../util/util');
 var shaders = require('mapbox-gl-shaders');
 
@@ -19,17 +18,14 @@ module.exports._createProgram = function(name, defines, vertexPragmas, fragmentP
     var fragmentShader = gl.createShader(gl.FRAGMENT_SHADER);
     gl.shaderSource(fragmentShader, applyPragmas(definesSource + definition.fragmentSource, fragmentPragmas));
     gl.compileShader(fragmentShader);
-    assert(gl.getShaderParameter(fragmentShader, gl.COMPILE_STATUS), gl.getShaderInfoLog(fragmentShader));
     gl.attachShader(program, fragmentShader);
 
     var vertexShader = gl.createShader(gl.VERTEX_SHADER);
     gl.shaderSource(vertexShader, applyPragmas(definesSource + utilSource + definition.vertexSource, vertexPragmas));
     gl.compileShader(vertexShader);
-    assert(gl.getShaderParameter(vertexShader, gl.COMPILE_STATUS), gl.getShaderInfoLog(vertexShader));
     gl.attachShader(program, vertexShader);
 
     gl.linkProgram(program);
-    assert(gl.getProgramParameter(program, gl.LINK_STATUS), gl.getProgramInfoLog(program));
 
     var attributes = {};
     var numAttributes = gl.getProgramParameter(program, gl.ACTIVE_ATTRIBUTES);

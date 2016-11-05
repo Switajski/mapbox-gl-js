@@ -2,8 +2,6 @@
 
 // Note: all "sizes" are measured in bytes
 
-var assert = require('assert');
-
 module.exports = StructArrayType;
 
 var viewTypes = {
@@ -89,9 +87,6 @@ function StructArrayType(options) {
             type: member.type,
             components: member.components || 1
         };
-
-        assert(member.name.length);
-        assert(member.type in viewTypes);
 
         if (usedTypes.indexOf(member.type) < 0) usedTypes.push(member.type);
 

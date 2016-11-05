@@ -1,6 +1,5 @@
 'use strict';
 
-var assert = require('assert');
 var WebWorker = require('./web_worker');
 var URL = require('./window').URL;
 
@@ -21,7 +20,6 @@ WorkerPool.prototype = {
             // client code a chance to set it while circumventing cyclic
             // dependency problems
             var workerCount = require('../mapbox-gl').workerCount;
-            assert(typeof workerCount === 'number' && workerCount < Infinity);
 
             this.workers = [];
             while (this.workers.length < workerCount) {
